@@ -39,3 +39,16 @@ export const useGetTrips = () => {
     },
   });
 };
+
+export const useGetTrip = (id: string) => {
+  return useQuery<TripResponse>({
+    queryKey: ['trips', id],
+    queryFn: async () => {
+      const response = await fetch(`${host}/trips/${id}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch trip');
+      }
+      return response.json();
+    },
+  });
+};

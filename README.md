@@ -69,12 +69,16 @@ Runs the frontend at [http://localhost:3000](http://localhost:3000).
 cd backend
 python3 -m venv venv
 source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 
 # Start FastAPI server
-uvicorn app.main:app --reload --port 8000
+./venv/bin/uvicorn app.main:app --reload --port 8000
 ```
 Runs the backend at [http://localhost:8000](http://localhost:8000).
+
+**Note**: Make sure to activate the virtual environment (`source venv/bin/activate`) before running any Python commands in the backend directory. To deactivate the virtual environment when you're done, simply type `deactivate`.
 
 ---
 
@@ -109,4 +113,3 @@ This project is licensed under the MIT License.
 Built with ❤️ by [Smruthi Srikumar](https://github.com/smruthiii/).
 
 ---
-

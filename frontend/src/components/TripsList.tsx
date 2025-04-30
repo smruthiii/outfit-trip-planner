@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from './ui/accordion';
+import Link from 'next/dist/client/link';
 
 const TripsList = (): React.ReactElement => {
   const { data: allTrips, isPending, isSuccess } = useGetTrips();
@@ -24,7 +25,10 @@ const TripsList = (): React.ReactElement => {
           value={`item-${trip.id}`}
           style={{ width: '100%' }}>
           <AccordionTrigger>{trip.title}</AccordionTrigger>
-          <AccordionContent>{trip.description}</AccordionContent>
+          <AccordionContent style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: '15px' }}>
+            <>{trip.description}</>
+            <Link href={`/trips/${trip.id}`}>View Trip</Link>
+          </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

@@ -48,3 +48,7 @@ def read_trip(trip_id: int, db: Session = Depends(get_db)):
     if trip is None:
         raise HTTPException(status_code=404, detail="Trip not found")
     return trip
+
+# @app.post("/trips/${trip_id}/events", response_model=schemas.Trip)
+# def create_trip(trip: schemas.TripCreate, db: Session = Depends(get_db)):
+#     return crud.create_trip(db=db, trip=trip)
